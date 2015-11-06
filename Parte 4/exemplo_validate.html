@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo JQuery Validation</title>
+    <script src="../js/jquery-2.1.4.js" type="text/javascript"></script>
+    <script src="../js/jquery.validate.js" type="text/javascript"></script>
+</head>
+<body>
+<form class="formValidate">
+    <label for="nome">Nome: </label>
+    <input id="nome" type="text" name="nome"/><br />
+
+    <label for="email">Email: </label>
+    <input id="email" type="email" name="email"/><br />
+
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha"/><br />
+
+    <label for="repetesenha">Repetir a Senha:</label>
+    <input type="password" id="repetesenha" name="repetesenha" /><br />
+
+    <input type="submit" value="Enviar" />
+</form>
+
+<script type="text/javascript">
+    $.validator.addMethod("alpha", function(value, element) {
+        return this.optional(element) || /^[A-Za-z]+$/.test(value)
+    },"Não São permitidos caracteres especiais e números");
+
+    $(document).ready(function() {
+        $(".formValidate").validate({
+            rules: {
+                nome: {
+                    required: true,
+                    minlength: 5
+                },
+                senha: {
+                    required: true,
+                    minlength: 5
+                },
+                repetesenha: {
+                    required: true,
+                    minlength: 5,
+                    equalTo: "#senha"
+                }
+            },
+            messages: {
+                senha: {
+                    required: "Informe uma senha!",
+                    minlength: "A senha deve conter no mínimo 8 caracteres"
+                },
+                repetesenha: {
+                    required: "Repita a senha!",
+                    minlength: "A senha deve conter no mínimo 8 caracteres",
+                    equalTo: "As senhas devem ser iguais!"
+                }
+            }
+        })
+    });
+</script>
+</body>
+</html>
