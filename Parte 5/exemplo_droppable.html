@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo Droppable em JQuery UI</title>
+    <link href="../css/jquery-ui.css" type="text/css" rel="stylesheet"/>
+    <script src="../js/jquery-2.1.4.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <style>
+        #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+        #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+    </style>
+    <script>
+        $(function() {
+            $( "#draggable" ).draggable();
+            $( "#droppable" ).droppable({
+                drop: function( event, ui ) {
+                    $( this )
+                        .addClass( "ui-state-highlight" )
+                        .find( "p" )
+                        .html( "Dropped!" );
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="draggable" class="ui-widget-content">
+    <p>Mova-me para o meu local</p>
+</div>
+
+<div id="droppable" class="ui-widget-header">
+    <p>Coloque aqui</p>
+</div>
+</body>
+</html>
