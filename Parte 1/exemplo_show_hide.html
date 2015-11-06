@@ -3,17 +3,6 @@
     <meta charset="UTF-8">
     <title>Show / Hide em Jquery</title>
     <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.btn_esconder').click(function(){
-                $('.divisoria').hide();
-            });
-
-            $('.btn_mostrar').click(function(){
-                $('.divisoria').show();
-            });
-        });
-    </script>
     <style>
         .container {
             width:100%;
@@ -33,8 +22,12 @@
         </div>
     </div>
     <div class="container">
-        <button class="btn_esconder">Esconder</button>
-        <button class="btn_mostrar">Mostrar</button>
+        <button class="btn_esconder" onclick="$('.divisoria').hide();">Esconder</button>
+        <button class="btn_mostrar" onclick="$('.divisoria').show();">Mostrar</button><br />
+        <button class="btn_esconder_tempo" onclick="$('.divisoria').hide(1000);">Esconder com atraso</button>
+        <button class="btn_mostrar_tempo" onclick="$('.divisoria').show(1000);">Mostrar com atraso</button><br />
+        <button class="btn_esconder_callback" onclick="$('.divisoria').hide(function () { alert('Escondido'); });">Esconder com resposta</button>
+        <button class="btn_mostrar_callback" onclick="$('.divisoria').show(function () { alert('Apareceu'); });">Mostrar com resposta</button><br />
     </div>
 </body>
 </html>

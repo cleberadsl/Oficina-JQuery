@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <title>Show / Hide em Jquery</title>
     <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.btn_esconder').click(function(){
-                $('.divisoria').slideUp();
-            });
-
-            $('.btn_mostrar').click(function(){
-                $('.divisoria').slideDown();
-            });
-        });
-    </script>
     <style>
         .container {
             width:100%;
@@ -34,8 +23,8 @@
     </div>
 </div>
 <div class="container">
-    <button class="btn_esconder">Esconder</button>
-    <button class="btn_mostrar">Mostrar</button>
+    <button class="btn_esconder" onclick="$('.divisoria').slideUp();">Esconder</button>
+    <button class="btn_mostrar" onclick="$('.divisoria').slideDown();">Mostrar</button>
 </div>
 </body>
 </html>
