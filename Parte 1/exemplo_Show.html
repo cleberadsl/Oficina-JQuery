@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<link lang="pt-BR">
+    <meta charset="UTF-8">
+    <title>Show em Jquery</title>
+    <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.btn_esconder').click(function(){
+                $('.divisoria').hide();
+            });
+
+            $('.btn_mostrar').click(function(){
+                $('.divisoria').show();
+            });
+        });
+    </script>
+    <style>
+        .container {
+            width:100%;
+            height: 100px;
+        }
+        .divisoria {
+            width: 75%;
+            height: 75px;
+            background: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="divisoria">
+            Caixa de conteúdo.
+        </div>
+    </div>
+    <div class="container">
+        <button class="btn_esconder">Esconder</button>
+        <button class="btn_mostrar">Mostrar</button>
+    </div>
+</body>
+</html>
