@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos em Jquery</title>
+    <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+    <style>
+        .div_botao {
+            background-color: gray;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+            padding: 10px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div id="div_botao_click" class="div_botao">
+    Click
+</div>
+<div id="div_botao_dblclick" class="div_botao">
+    Double Click
+</div>
+<div id="div_botao_mouseenter" class="div_botao">
+    Mouse enter
+</div>
+<div id="div_input_keypress" class="div_botao">
+    <input type="text" class="input_keypress"/>
+</div>
+<div id="div_input_keyup" class="div_botao">
+    <input type="text" class="input_keyup"/>
+</div>
+<div id="div_select" class="div_botao">
+    <select class="select">
+        <option>-- Selecione --</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+</div>
+
+</body>
+<script type="text/javascript">
+    $(
+        function(){
+            $("#div_botao_click").click(
+                function(){
+                    alert("Clicou");
+                }
+            );
+
+            $("#div_botao_dblclick").dblclick(
+                    function(){
+                        alert("Clicou 2X");
+                    }
+            );
+
+            $("#div_botao_mouseenter").mouseenter(
+                    function(){
+                        alert("Entrou");
+                    }
+            );
+            $(".input_keypress").keypress(
+                    function () {
+                        alert($(this).val());
+                    }
+            );
+            $(".input_keyup").keyup(
+                    function () {
+                        alert($(this).val());
+                    }
+            );
+            $(".select").change(
+                    function () {
+                        alert($(this).val());
+                    }
+            );
+        }
+    );
+</script>
+</html>
